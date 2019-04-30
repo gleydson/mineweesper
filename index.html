@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>💣 Minesweeper Game</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 1px solid #000;
+      }
+      td {
+        width: 58px;
+        height: 58px;
+        border: 1px solid #000;
+        text-align: center;
+        vertical-align: center;
+        font-family: monospace;
+        font-size: 18px;
+        position: relative;
+      }
+      .field-index {
+        font-size: 10px;
+        display: inline-block;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        color: #999;
+      }
+      .field-hide {
+        background-color: #999;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #bbb;
+      }
+      .span-hide {
+        display: none;
+      }
+      .span-show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="minesweeper"></div>
+    <script src="./game.js"></script>
+  </body>
+</html>
