@@ -46,40 +46,27 @@ const updateFieldsWithMines = () => {
   }
 };
 
-const isInside = (line, column) => {
-  if (
+const isInside = (line, column) =>
+  !(
     line < 0 ||
     line >= numberOfFields ||
     column < 0 ||
     column >= numberOfFields
-  )
-    return false;
-  return true;
-};
+  );
 
-const isBomb = (line, column) => {
-  if (mines[line][column] === BOMB) return true;
-  return false;
-};
+const isBomb = (line, column) => mines[line][column] === BOMB;
 
 const getNeighbors = (line, column) => {
   const neighbors = [];
-  neighbors.push(isInside(line, column - 1) ? mines[line][column - 1] : null);
-  neighbors.push(isInside(line, column + 1) ? mines[line][column + 1] : null);
-  neighbors.push(isInside(line - 1, column) ? mines[line - 1][column] : null);
-  neighbors.push(isInside(line + 1, column) ? mines[line + 1][column] : null);
-  neighbors.push(
-    isInside(line - 1, column - 1) ? mines[line - 1][column - 1] : null
-  );
-  neighbors.push(
-    isInside(line - 1, column + 1) ? mines[line - 1][column + 1] : null
-  );
-  neighbors.push(
-    isInside(line + 1, column - 1) ? mines[line + 1][column - 1] : null
-  );
-  neighbors.push(
-    isInside(line + 1, column + 1) ? mines[line + 1][column + 1] : null
-  );
+
+  isInside(line, column - 1) && neighbors.push(mines[line][column - 1]);
+  isInside(line, column + 1) && neighbors.push(mines[line][column + 1]);
+  isInside(line - 1, column) && neighbors.push(mines[line - 1][column]);
+  isInside(line + 1, column) && neighbors.push(mines[line + 1][column]);
+  isInside(line - 1, column - 1) && neighbors.push(mines[line - 1][column - 1]);
+  isInside(line - 1, column + 1) && neighbors.push(mines[line - 1][column + 1]);
+  isInside(line + 1, column - 1) && neighbors.push(mines[line + 1][column - 1]);
+  isInside(line + 1, column + 1) && neighbors.push(mines[line + 1][column + 1]);
 
   return neighbors;
 };
