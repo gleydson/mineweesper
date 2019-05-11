@@ -87,7 +87,7 @@ const generateIndicators = () => {
         if (numberOfBombs === 0) {
           mines[line][column] = "";
         } else {
-          mines[line][column] = getQuantityOfBombsAround(line, column);
+          mines[line][column] = numberOfBombs;
         }
       }
     }
