@@ -71,13 +71,7 @@ const getNeighbors = (line, column) => {
   return neighbors;
 };
 
-const getQuantityOfBombsAround = (line, column) => {
-  let myValue = 0;
-  for (el of getNeighbors(line, column)) {
-    if (el === BOMB) myValue += 1;
-  }
-  return myValue;
-};
+const getQuantityOfBombsAround = (line, column) => getNeighbors(line, column).filter(el => el === BOMB).length;
 
 const generateIndicators = () => {
   for (let line = 0; line < numberOfFields; line++) {
